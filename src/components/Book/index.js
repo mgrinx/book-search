@@ -34,11 +34,11 @@ function Book(props) {
     }
 
     return (
-        <Col size="sm-6 col-md-4 col-lg-3">
+        <Col size="md-6 col-lg-4">
             <div className="card my-3">
                 <img src={image ? image : "https://placehold.it/250x200"} className="card-img-top" alt={title} />
                 <div className="card-body">
-                    <h5 className="card-title">{title ? (title.length > 40 ? title.slice(0, 40) + "..." : title) : "No title"}</h5>
+                    <h5 className="card-title">{title ? title: "No title"}</h5>
                     <a href={link ? link : "#!"} className="btn btn-primary mr-2 mb-3">View</a>
                     {savedId ?
                         <button onClick={deleteFromDb} className="btn btn-danger mb-3">Delete</button>
@@ -56,7 +56,7 @@ function Book(props) {
                         </div>
                     : null}
                     <p className="card-text text-muted">{authors ? authors.join(", ") : "Unknown author"}</p>
-                    <p className="card-text">{description ? (description.length > 100 ? description.slice(0, 100) + "..." : description) : "No description"}</p>
+                    <p className="description-text card-text">{description ? description : "No description"}</p>
                 </div>
             </div>
         </Col>
