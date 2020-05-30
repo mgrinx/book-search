@@ -17,7 +17,7 @@ function Search(props) {
         let { query } = props.location.state;
         document.title = "Book Search - " + query;
         axios
-            .get("https://www.googleapis.com/books/v1/volumes?key=" + process.env.API_KEY + "&q=" + query)
+            .get("https://www.googleapis.com/books/v1/volumes?key=" + process.env.REACT_APP_API_KEY + "&q=" + query)
             .then(res => {
                 // console.log(res.data.items);
                 setResults(res.data.items);
