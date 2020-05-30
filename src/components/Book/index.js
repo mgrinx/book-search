@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Col } from '../Grid';
 import API from '../../utils/API';
 import './style.css';
@@ -7,8 +7,10 @@ function Book(props) {
     let { title, authors, description, image, link, savedId } = props;
 
     const [saved, setSaved] = useState(false);
+    const [saving, setSaving] = useState(false);
 
     function saveToDb() {
+        setSaving(true);
         API
             .post("/", {
                 title: title,
@@ -18,6 +20,7 @@ function Book(props) {
                 link: link
             })
             .then(function() {
+                setSaving(false);
                 setSaved(true);
             });
     }
@@ -42,6 +45,11 @@ function Book(props) {
                     :
                         <button onClick={saveToDb} className="btn btn-secondary mb-3">Save</button>
                     }
+                    {saving ?
+                        <div class="spinner-border text-primary ml-2" role="status">
+                            <span class="sr-only">Saving...</span>
+                        </div>
+                    : null}
                     {saved ?
                         <div className="alert alert-primary" role="alert">
                             Saved!

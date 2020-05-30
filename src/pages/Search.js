@@ -19,16 +19,19 @@ function Search(props) {
         GoogleBooks
             .get(query)
             .then(res => {
-                console.log(res.data.items);
+                // console.log(res.data.items);
                 setResults(res.data.items);
                 setLoading(false);
             });
     }, [props.location.state]);
 
+    if(loading) {
+        return (
+            <Spinner />
+        );
+    }
+
     return (
-        loading ?
-        <Spinner />
-        :
         <Container>
             <Row>
                 {results.length > 0 ?

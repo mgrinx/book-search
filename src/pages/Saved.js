@@ -19,10 +19,13 @@ function Saved(props) {
             });
     }, []);
 
+    if(loading) {
+        return (
+            <Spinner />
+        );
+    }
+
     return (
-        loading ?
-        <Spinner />
-        :
         <Container>
             <Row>
                 {results.length > 0 ?
