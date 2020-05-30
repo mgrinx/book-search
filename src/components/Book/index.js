@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Col } from '../Grid';
-import API from '../../utils/API';
 import './style.css';
+import axios from 'axios';
 
 function Book(props) {
     let { title, authors, description, image, link, savedId } = props;
@@ -11,8 +11,8 @@ function Book(props) {
 
     function saveToDb() {
         setSaving(true);
-        API
-            .post("/", {
+        axios
+            .post("https://salty-cove-70125.herokuapp.com/", {
                 title: title,
                 authors: authors,
                 description: description,
@@ -26,8 +26,8 @@ function Book(props) {
     }
 
     function deleteFromDb() {
-        API
-            .delete("/" + savedId)
+        axios
+            .delete("https://salty-cove-70125.herokuapp.com/" + savedId)
             .then(function() {
                 window.location.reload();
             });

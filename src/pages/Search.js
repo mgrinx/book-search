@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { Container, Row, Col } from '../components/Grid'
 import Spinner from '../components/Spinner';
-import GoogleBooks from '../utils/GoogleBooks';
 import Book from '../components/Book';
+import axios from 'axios';
 
 function Search(props) {
     const [loading, setLoading] = useState(true);
@@ -16,8 +16,8 @@ function Search(props) {
         }
         let { query } = props.location.state;
         document.title = "Book Search - " + query;
-        GoogleBooks
-            .get(query)
+        axios
+            .get("https://www.googleapis.com/books/v1/volumes?key=" + process.env.API_KEY + "&q=" + query)
             .then(res => {
                 // console.log(res.data.items);
                 setResults(res.data.items);

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Container, Row, Col } from '../components/Grid'
 import Spinner from '../components/Spinner';
 import Book from '../components/Book';
-import API from '../utils/API';
+import axios from 'axios';
 
 function Saved(props) {
     const [loading, setLoading] = useState(true);
@@ -10,8 +10,8 @@ function Saved(props) {
 
     useEffect(() => {
         document.title = "Book Search - Saved Books";
-        API
-            .get("/")
+        axios
+            .get("https://salty-cove-70125.herokuapp.com/")
             .then(res => {
                 console.log(res.data);
                 setResults(res.data);
