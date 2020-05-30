@@ -25,11 +25,7 @@ function Search(props) {
             });
     }, [props.location.state]);
 
-    if(loading) {
-        return (
-            <Spinner />
-        );
-    }
+    if (loading) return <Spinner />;
 
     return (
         <Container>
