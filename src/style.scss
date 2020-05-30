@@ -1,0 +1,14 @@
+$enable-gradients: true;
+
+$primary: #0daf7c;
+$secondary: #3ab7ff;
+$success: #e94f4f;
+$info: #7164ff;
+$warning: #ff9f65;
+$danger: #ff457b;
+$light: #ffddd4;
+$dark: #18181d;
+
+$body-bg: #f5e8e4;
+
+@import "node_modules/bootstrap/scss/bootstrap";
