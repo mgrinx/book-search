@@ -8,6 +8,7 @@ A React.js app for searching the Google Books API and saving individual books to
 - [Contributors](#Contributors)
 - [Dependencies](#Dependencies)
 ## Usage
+### [Try it!](https://sleepy-dawn-46114.herokuapp.com/)
 Type a query in the search bar and press enter or click the "Go" button to find books.  
 To save a book, click the "Save" button on the book card.  
 Click "View saved books" in the header to see all saved books and delete individual books from the database.
