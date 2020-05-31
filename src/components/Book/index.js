@@ -35,7 +35,7 @@ function Book(props) {
 
     return (
         <Col size="md-6 col-lg-4">
-            <div className="card my-3">
+            <div className="card mb-4">
                 <img src={image ? image : "https://placehold.it/250x200"} className="card-img-top" alt={title} />
                 <div className="card-body">
                     <h5 className="card-title">{title || "No title"}</h5>
