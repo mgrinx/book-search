@@ -23,7 +23,7 @@ function Search(props) {
                 setResults(res.data.items);
                 setLoading(false);
             });
-    }, []);
+    }, [props.location.search]);
 
     if (loading) return <Spinner />;
 
