@@ -7,13 +7,6 @@ A React.js app for searching the Google Books API and saving individual books to
 
 ![Screenshot](Screenshot.png)
 
-## Table of Contents
-
-- [Usage](#Usage)
-- [Features](#Features)
-- [Contributors](#Contributors)
-- [Dependencies](#Dependencies)
-
 ## Usage
 
 ### [Try it!](https://sleepy-dawn-46114.herokuapp.com/)
