@@ -8,7 +8,7 @@ function Header() {
     }
 
     return (
-        <nav className="navbar navbar-light bg-light">
+        <nav className="navbar navbar-light bg-light fixed-top">
             <Link to="/" className="navbar-brand"><span role="img" aria-label="book">📘</span> Book Search</Link>
             <form className="form-inline">
                 <Link to="/saved" className="btn btn-sm btn-outline-secondary my-2 my-sm-0" role="button">View saved books</Link>

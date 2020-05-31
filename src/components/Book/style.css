@@ -3,13 +3,9 @@
     width: 100%;
 }
 
-.card-title, .card-text {
+.description-text {
     display: -webkit-box;
     -webkit-box-orient: vertical;
-    -webkit-line-clamp: 1;
-    overflow: hidden;
-}
-
-.description-text {
     -webkit-line-clamp: 3;
+    overflow: hidden;
 }

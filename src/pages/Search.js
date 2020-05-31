@@ -18,7 +18,8 @@ function Search({ location }) {
         }
         document.title = "Book Search - " + query;
         axios
-            .get("https://www.googleapis.com/books/v1/volumes?key=" + process.env.REACT_APP_API_KEY + "&q=" + query)
+            .get("https://www.googleapis.com/books/v1/volumes?key=AIzaSyAl8CBv4QJ94spTxKXV72EWmznBTUyHtJs&q=" + query)
+            // .get("https://www.googleapis.com/books/v1/volumes?key=" + process.env.REACT_APP_API_KEY + "&q=" + query)
             .then(res => {
                 setResults(res.data.items);
                 setLoading(false);

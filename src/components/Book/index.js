@@ -5,6 +5,7 @@ import API from '../../utils/API';
 
 function Book({ title, authors, description, image, link, savedId }) {
     const [saved, setSaved] = useState();
+    const [deleting, setDeleting] = useState();
 
     function saveToDb() {
         setSaved(false);
@@ -22,6 +23,7 @@ function Book({ title, authors, description, image, link, savedId }) {
     }
 
     function deleteFromDb() {
+        setDeleting(true);
         API
             .delete(savedId)
             .then(function() {
@@ -34,24 +36,27 @@ function Book({ title, authors, description, image, link, savedId }) {
             <div className="card mb-4">
                 <img src={image ? image.replace("http://", "https://") : "https://placehold.it/300x300"} className="card-img-top" alt={title} />
                 <div className="card-body">
-                    <h5 className="card-title">{title || "No title"}</h5>
-                    <a href={link ? link.replace("http://", "https://") : "#"} className="btn btn-primary mr-2 mb-3">View</a>
+                    <h5 className="card-title text-truncate">{title || "No title"}</h5>
+                    <p className="card-text text-muted text-truncate">{authors ? authors.join(", ") : "Unknown author"}</p>
+                    <a href={link ? link.replace("http://", "https://") : "#"} className="btn btn-primary mr-3 mb-3"><i class="far fa-eye" /> View</a>
                     {savedId ?
-                        <button onClick={deleteFromDb} className="btn btn-danger mb-3">Delete</button>
+                        <button onClick={deleteFromDb} className="btn btn-danger mr-3 mb-3"><i class="far fa-trash-alt" /> Delete</button>
                     :
-                        <button onClick={saveToDb} className="btn btn-secondary mb-3">Save</button>
+                        <button onClick={saveToDb} className="btn btn-secondary mr-3 mb-3"><i class="far fa-save" /> Save</button>
                     }
+                    {deleting ?
+                        <div class="spinner-border text-danger" role="status">
+                            <span class="sr-only">Deleting...</span>
+                        </div>
+                    : null}
                     {saved === false ?
-                        <div class="spinner-border text-primary ml-2" role="status">
+                        <div class="spinner-border text-primary" role="status">
                             <span class="sr-only">Saving...</span>
                         </div>
                     : null}
                     {saved ?
-                        <div className="alert alert-primary" role="alert">
-                            Saved!
-                        </div>
+                        <i class="fas fa-2x fa-check text-primary"></i>
                     : null}
-                    <p className="card-text text-muted">{authors ? authors.join(", ") : "Unknown author"}</p>
                     <p className="description-text card-text">{description || "No description"}</p>
                 </div>
             </div>
