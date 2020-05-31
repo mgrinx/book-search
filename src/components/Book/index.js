@@ -3,14 +3,11 @@ import { Col } from '../Grid';
 import './style.css';
 import API from '../../utils/API';
 
-function Book(props) {
-    let { title, authors, description, image, link, savedId } = props;
-
-    const [saved, setSaved] = useState(false);
-    const [saving, setSaving] = useState(false);
+function Book({ title, authors, description, image, link, savedId }) {
+    const [saved, setSaved] = useState();
 
     function saveToDb() {
-        setSaving(true);
+        setSaved(false);
         API
             .post('/', {
                 title: title,
@@ -20,7 +17,6 @@ function Book(props) {
                 link: link
             })
             .then(function() {
-                setSaving(false);
                 setSaved(true);
             });
     }
@@ -45,7 +41,7 @@ function Book(props) {
                     :
                         <button onClick={saveToDb} className="btn btn-secondary mb-3">Save</button>
                     }
-                    {saving ?
+                    {saved === false ?
                         <div class="spinner-border text-primary ml-2" role="status">
                             <span class="sr-only">Saving...</span>
                         </div>

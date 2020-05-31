@@ -6,7 +6,7 @@ export function Container({ fluid, children }) {
 }
 
 export function Row({ children }) {
-  return <div className={"row"}>{children}</div>;
+  return <div className="row">{children}</div>;
 }
 
 export function Col({ size, children }) {
