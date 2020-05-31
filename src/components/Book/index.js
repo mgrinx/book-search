@@ -32,10 +32,10 @@ function Book({ title, authors, description, image, link, savedId }) {
     return (
         <Col size="md-6 lg-4">
             <div className="card mb-4">
-                <img src={image || "https://placehold.it/300x300"} className="card-img-top" alt={title} />
+                <img src={image ? image.replace("http://", "https://") : "https://placehold.it/300x300"} className="card-img-top" alt={title} />
                 <div className="card-body">
                     <h5 className="card-title">{title || "No title"}</h5>
-                    <a href={link ? link : "#!"} className="btn btn-primary mr-2 mb-3">View</a>
+                    <a href={link ? link.replace("http://", "https://") : "#"} className="btn btn-primary mr-2 mb-3">View</a>
                     {savedId ?
                         <button onClick={deleteFromDb} className="btn btn-danger mb-3">Delete</button>
                     :

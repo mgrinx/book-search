@@ -3,22 +3,25 @@ import { Container, Row, Col } from '../components/Grid'
 import Spinner from '../components/Spinner';
 import Book from '../components/Book';
 import API from '../utils/API';
+import ErrorMessage from '../components/ErrorMessage';
 
-function Saved(props) {
+function Saved() {
     const [loading, setLoading] = useState(true);
     const [results, setResults] = useState();
+    const [error, setError] = useState();
 
     useEffect(() => {
         document.title = "Book Search - Saved Books";
         API
             .get('/')
             .then(res => {
-                // console.log(res.data);
                 setResults(res.data);
                 setLoading(false);
-            });
+            })
+            .catch(err => setError(err.toString()));
     }, []);
 
+    if (error) return <ErrorMessage>{error}</ErrorMessage>;
     if (loading) return <Spinner />;
 
     return (
