@@ -10,5 +10,5 @@ export function Row({ children }) {
 }
 
 export function Col({ size, children }) {
-  return <div className={"col-" + size}>{children}</div>;
+  return <div className={size.split(" ").map(v=>"col-"+v).join(" ")}>{children}</div>;
 }

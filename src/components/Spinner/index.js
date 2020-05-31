@@ -5,9 +5,11 @@ function Spinner() {
     return (
         <Container>
             <Row>
-                <Col size="12 text-center">
-                    <div className="spinner-border" role="status">
-                        <span className="sr-only">Loading...</span>
+                <Col size="12">
+                    <div className="text-center">
+                        <div className="spinner-border" role="status">
+                            <span className="sr-only">Loading...</span>
+                        </div>
                     </div>
                 </Col>
             </Row>
