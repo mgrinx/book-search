@@ -9,12 +9,12 @@ function Search(props) {
     const [results, setResults] = useState();
 
     useEffect(() => {
-        if (!props.location.state) {
-            setResults([]);
+        let search = new URLSearchParams(props.location.search)
+        let query = search.get('q');
+        if (!query) {
             setLoading(false);
             return;
         }
-        let { query } = props.location.state;
         document.title = "Book Search - " + query;
         axios
             .get("https://www.googleapis.com/books/v1/volumes?key=" + process.env.REACT_APP_API_KEY + "&q=" + query)
@@ -23,14 +23,14 @@ function Search(props) {
                 setResults(res.data.items);
                 setLoading(false);
             });
-    }, [props.location.state]);
+    }, []);
 
     if (loading) return <Spinner />;
 
     return (
         <Container>
             <Row>
-                {results.length > 0 ?
+                {results ?
                     results.map((v, i) => (
                         <Book
                             key={i}
