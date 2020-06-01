@@ -34,7 +34,9 @@ function Book({ title, authors, description, image, link, savedId }) {
     return (
         <Col size="md-6 lg-4">
             <div className="card mb-4">
-                <img src={image ? image.replace("http://", "https://") : "https://placehold.it/300x300"} className="card-img-top" alt={title} />
+                <div className="image-wrapper">
+                    <img src={image ? image.replace("http://", "https://") : "https://placehold.it/300x300"} alt={title} />
+                </div>
                 <div className="card-body">
                     <h5 className="card-title text-truncate">{title || "No title"}</h5>
                     <p className="card-text text-muted text-truncate">{authors ? authors.join(", ") : "Unknown author"}</p>
