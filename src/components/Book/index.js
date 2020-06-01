@@ -35,7 +35,7 @@ function Book({ title, authors, description, image, link, savedId }) {
         <Col size="md-6 lg-4">
             <div className="card mb-4">
                 <div className="image-wrapper">
-                    <img src={image ? image.replace("http://", "https://") : "https://placehold.it/300x300"} alt={title} />
+                    <img src={image ? image.replace("http://", "https://") : "https://placehold.it/300x300"} alt={title} className="book-img img-fluid mx-auto mb-3 d-block rounded"/>
                 </div>
                 <div className="card-body">
                     <h5 className="card-title text-truncate">{title || "No title"}</h5>
